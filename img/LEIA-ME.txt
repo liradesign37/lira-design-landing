@@ -1,0 +1,6 @@
+Salve sua foto nesta pasta com o nome exato: abilio.jpg
+
+Ou seja, o arquivo final deve ser: img/abilio.jpg
+
+Dica: use uma foto na vertical (em pe), boa qualidade. A propria foto
+que voce enviou no chat serve. E so salva-la aqui com esse nome.

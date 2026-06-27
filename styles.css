@@ -73,7 +73,19 @@ h1, h2, h3 { font-family: "Anton", "Inter", sans-serif; font-weight: 400; letter
   box-shadow: 0 0 70px rgba(166,255,0,0.25);
   display: flex; align-items: center; justify-content: center;
 }
-.photo-placeholder { font-family: "Anton"; color: rgba(166,255,0,0.4); text-align: center; font-size: 1.4rem; letter-spacing: 0.1em; }
+.photo-frame img, .mentor-photo img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.photo-frame::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(166,255,0,0.18), transparent 35%, rgba(0,0,0,0.45));
+  mix-blend-mode: screen;
+}
+.photo-fallback {
+  display: none; font-family: "Anton"; color: rgba(166,255,0,0.4);
+  text-align: center; font-size: 1.4rem; letter-spacing: 0.1em; padding: 1rem;
+}
+.no-img .photo-fallback { display: block; }
 .float-card {
   position: absolute; background: rgba(12,17,12,0.92); border: 1px solid var(--border);
   padding: 0.6rem 0.9rem; border-radius: 10px; font-size: 0.8rem; font-weight: 600;
@@ -118,7 +130,8 @@ h1, h2, h3 { font-family: "Anton", "Inter", sans-serif; font-weight: 400; letter
 
 /* MENTOR */
 .mentor { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 3.5rem; align-items: center; background: var(--bg-soft); }
-.mentor-photo { aspect-ratio: 3/4; border-radius: 20px; background: linear-gradient(180deg,#11160f,#060a05); border: 1px solid var(--border); display: grid; place-items: center; filter: grayscale(0.3); }
+.mentor-photo { position: relative; aspect-ratio: 3/4; border-radius: 20px; overflow: hidden; background: linear-gradient(180deg,#11160f,#060a05); border: 1px solid var(--border); display: grid; place-items: center; box-shadow: 0 0 60px rgba(166,255,0,0.18); }
+.mentor-photo::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, rgba(166,255,0,0.12), transparent 40%, rgba(0,0,0,0.4)); mix-blend-mode: screen; }
 .mentor-copy h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1.2rem; }
 .mentor-copy p { color: var(--muted); margin-bottom: 1rem; }
 

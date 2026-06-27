@@ -23,18 +23,18 @@ const msg = document.getElementById("formMsg");
 form?.addEventListener("submit", (e) => {
   e.preventDefault();
   const nome = form.querySelector('[name="nome"]').value.trim();
-  const email = form.querySelector('[name="email"]').value.trim();
+  const negocio = form.querySelector('[name="negocio"]').value.trim();
   const whats = form.querySelector('[name="whatsapp"]').value.trim();
   const servico = form.querySelector('[name="servico"]').value;
 
   const texto =
-    `Olá Abilio! Quero um projeto 3D com a Lira Design.%0A%0A` +
+    `Ol%C3%A1 Abilio! Quero agendar uma reuni%C3%A3o com a Lira Design.%0A%0A` +
     `*Nome:* ${encodeURIComponent(nome)}%0A` +
-    `*E-mail:* ${encodeURIComponent(email)}%0A` +
-    (whats ? `*WhatsApp:* ${encodeURIComponent(whats)}%0A` : "") +
-    `*Tipo de projeto:* ${encodeURIComponent(servico)}`;
+    (negocio ? `*Neg%C3%B3cio:* ${encodeURIComponent(negocio)}%0A` : "") +
+    `*WhatsApp:* ${encodeURIComponent(whats)}%0A` +
+    `*Preciso de:* ${encodeURIComponent(servico)}`;
 
-  msg.textContent = `Perfeito, ${nome || "tudo certo"}! Abrindo o WhatsApp... ◆`;
+  msg.textContent = `Perfeito, ${nome || "tudo certo"}! Abrindo o WhatsApp pra finalizar... ◆`;
   window.open(`https://wa.me/${WHATSAPP}?text=${texto}`, "_blank");
   form.reset();
 });
